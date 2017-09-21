@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Users New</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    
+    .errorlist{
+        color: red;
+    }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+
+        <h1>Add a new user</h1>
+        <p>
+            <form action="/users/create" method="post">
+                {% csrf_token %}
+                <ul style='list-style: none'>
+                    {{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                        {{ form.first_name.errors }}
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.last_name.errors }}
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.email.errors }}
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                <input type="submit" value="Create">
+                </ul>
+            </form>
+        </p>
+        <p>
+            <a href="/users">Go Back</a>
+        </p>
+
+    </div>
+</body>
+
+</html>

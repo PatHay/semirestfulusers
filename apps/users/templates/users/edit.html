@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Users</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+
+        <h1>Edit user {{ number }}</h1>
+        <p>
+            <form action="edit_user" method="post">
+                {% csrf_token %}
+                <ul>
+                {% for attr in form %}
+                    <p>{{ attr.label }}:</p>
+                    <p>{{ attr }}</p>
+                {% endfor %}
+                <input type="submit" value="Update">
+                </ul>
+            </form>
+        </p>
+        <p>
+            <a href="/users/{{ number }}">Show</a> | <a href="/users">Go Back</a>
+        </p>
+
+    </div>
+</body>
+
+</html>
